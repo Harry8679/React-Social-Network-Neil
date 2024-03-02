@@ -33,19 +33,19 @@ const EventForm = ({ setFormOpen }: Props) => {
             <input type='text' placeholder='Event title' name='title' value={values.title} onChange={e => handleInputChange(e)} />
         </Form.Field>
         <Form.Field>
-            <input type='text' placeholder='Category' />
+            <input type='text' placeholder='Category' name='category' value={values.category} onChange={e => handleInputChange(e)} />
         </Form.Field>
         <Form.Field>
-            <input type='text' placeholder='Description' />
+            <input type='text' placeholder='Description' name='description' value={values.description} onChange={e => handleInputChange(e)} />
         </Form.Field>
         <Form.Field>
-            <input type='text' placeholder='City' />
+            <input type='text' placeholder='City' name='city' value={values.city} onChange={e => handleInputChange(e)} />
         </Form.Field>
         <Form.Field>
-            <input type='text' placeholder='Venue' />
+            <input type='text' placeholder='Venue' name='venue' value={values.venue} onChange={e => handleInputChange(e)} />
         </Form.Field>
         <Form.Field>
-            <input type='text' placeholder='Date' />
+            <input type='text' placeholder='Date' name='date' value={values.date} onChange={e => handleInputChange(e)} />
         </Form.Field>
 
         <Button type='submit' floated='right' positive content='Submit' />
