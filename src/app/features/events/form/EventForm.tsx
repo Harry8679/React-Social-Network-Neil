@@ -45,7 +45,7 @@ const EventForm = ({ setFormOpen }: Props) => {
             <input type='text' placeholder='Venue' name='venue' value={values.venue} onChange={e => handleInputChange(e)} />
         </Form.Field>
         <Form.Field>
-            <input type='text' placeholder='Date' name='date' value={values.date} onChange={e => handleInputChange(e)} />
+            <input type='date' placeholder='Date' name='date' value={values.date} onChange={e => handleInputChange(e)} />
         </Form.Field>
 
         <Button type='submit' floated='right' positive content='Submit' />
