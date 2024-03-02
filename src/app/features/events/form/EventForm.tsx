@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Button, Form, Header, Segment } from 'semantic-ui-react';
 
 type Props = {
@@ -5,12 +6,17 @@ type Props = {
 }
 
 const EventForm = ({ setFormOpen }: Props) => {
+  const [title, setTitle] = useState('');
+
+  const handleSubmit = () => {
+    console.log(title);
+  }
   return (
     <Segment clearing>
       <Header content='Create Event' />
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Field>
-            <input type='text' placeholder='Event title' />
+            <input type='text' placeholder='Event title' value={title} onChange={e => setTitle(e.target.value)} />
         </Form.Field>
         <Form.Field>
             <input type='text' placeholder='Category' />
