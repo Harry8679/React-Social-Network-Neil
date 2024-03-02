@@ -11,7 +11,7 @@ type Props = {
 }
 
 const EventDashboard = ({formOpen, setFormOpen}:Props) => {
-    const [events, setEvents] = useState<AppEvent>([]);
+    const [events, setEvents] = useState<AppEvent[]>([]);
 
     useEffect(() => {
         setEvents(sampleData);
