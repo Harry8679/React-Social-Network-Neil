@@ -24,7 +24,7 @@ const EventListItem = ({ event }: Props) => {
       <Segment>
         <span>
             <Icon name='clock' /> {event.date}
-            <Icon name2='market' /> {event.venue}
+            <Icon name='marker' /> {event.venue}
         </span>
       </Segment>
       <Segment secondary>
