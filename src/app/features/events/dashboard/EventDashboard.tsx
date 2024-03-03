@@ -8,11 +8,12 @@ import { AppEvent } from "../../../types/event";
 type Props = {
     formOpen: boolean;
     setFormOpen: (value: boolean) => void;
+    selectEvent: (event: AppEvent) => void;
+    selectedEvent: AppEvent | null;
 }
 
-const EventDashboard = ({formOpen, setFormOpen}:Props) => {
+const EventDashboard = ({ formOpen, setFormOpen, selectEvent, selectedEvent }:Props) => {
     const [events, setEvents] = useState<AppEvent[]>([]);
-    const [selectedEvent, setElectedEvent] = useState<AppEvent | null>(null);
 
     useEffect(() => {
         setEvents(sampleData);
@@ -24,19 +25,14 @@ const EventDashboard = ({formOpen, setFormOpen}:Props) => {
         });
     }
 
-    const handleSelectedEvent = (event: AppEvent) => {
-        setElectedEvent(event);
-        setFormOpen(true);
-    }
-
     return (
         <Grid>
             <Grid.Column width={10}>
-                <EventList events={events} selectEvent={handleSelectedEvent} />
+                <EventList events={events} selectEvent={selectEvent} />
             </Grid.Column>
             <Grid.Column width={6}>
                 {formOpen && 
-                    <EventForm setFormOpen={setFormOpen} addEvent={addEvent} selectedEvent={selectedEvent} />}
+                    <EventForm setFormOpen={setFormOpen} addEvent={addEvent} selectedEvent={selectedEvent} key={selectedEvent ? selectedEvent.id : 'create'} />}
             </Grid.Column>
         </Grid>
     );
