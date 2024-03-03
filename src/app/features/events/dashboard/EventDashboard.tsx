@@ -8,8 +8,9 @@ import { AppEvent } from "../../../types/event";
 type Props = {
     formOpen: boolean;
     setFormOpen: (value: boolean) => void;
-    selectEvent: (event: AppEvent) => void;
+    selectEvent: (event: AppEvent | null) => void;
     selectedEvent: AppEvent | null;
+    updateEvent: (event: AppEvent) => void;
 }
 
 const EventDashboard = ({ formOpen, setFormOpen, selectEvent, selectedEvent }:Props) => {
@@ -25,6 +26,12 @@ const EventDashboard = ({ formOpen, setFormOpen, selectEvent, selectedEvent }:Pr
         });
     }
 
+    const updateEvent = (updatedEvent: AppEvent) => {
+        setEvents(events.map(evt => evt.id === updatedEvent.id ? updatedEvent : evt));
+        selectEvent(null);
+        setFormOpen(false);
+    };
+
     return (
         <Grid>
             <Grid.Column width={10}>
@@ -32,7 +39,7 @@ const EventDashboard = ({ formOpen, setFormOpen, selectEvent, selectedEvent }:Pr
             </Grid.Column>
             <Grid.Column width={6}>
                 {formOpen && 
-                    <EventForm setFormOpen={setFormOpen} addEvent={addEvent} selectedEvent={selectedEvent} key={selectedEvent ? selectedEvent.id : 'create'} />}
+                    <EventForm setFormOpen={setFormOpen} updateEvent={updateEvent} addEvent={addEvent} selectedEvent={selectedEvent} key={selectedEvent ? selectedEvent.id : 'create'} />}
             </Grid.Column>
         </Grid>
     );
