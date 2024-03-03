@@ -7,6 +7,7 @@ type Props = {
     setFormOpen: (value: boolean) => void;
     addEvent: (event: AppEvent) => void;
     selectedEvent: AppEvent | null;
+    updateEvent: AppEvent | null;
 }
 
 const EventForm = ({ setFormOpen, addEvent, selectedEvent, updateEvent }: Props) => {

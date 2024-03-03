@@ -6,9 +6,10 @@ import { AppEvent } from '../../../types/event';
 type Props = {
     event: AppEvent
     selectEvent: (event: AppEvent) => void;
+    deleteEvent: (event: string) => void;
 }
 
-const EventListItem = ({ event, selectEvent }: Props) => {
+const EventListItem = ({ event, selectEvent, deleteEvent }: Props) => {
   return (
     <SegmentGroup>
       <Segment>
@@ -37,6 +38,7 @@ const EventListItem = ({ event, selectEvent }: Props) => {
       </Segment>
       <Segment clearing>
         <span>{event.description}</span>
+        <Button color='red' floated='right' content='Delete' onClick={() => deleteEvent(event.id)} />
         <Button color='teal' floated='right' content='View' onClick={() => selectEvent(event)} />
       </Segment>
     </SegmentGroup>
