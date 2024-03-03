@@ -5,14 +5,15 @@ import { AppEvent } from '../../../types/event';
 
 type Props = {
     event: AppEvent
+    selectEvent: (event: AppEvent) => void;
 }
 
-const EventListItem = ({ event }: Props) => {
+const EventListItem = ({ event, selectEvent }: Props) => {
   return (
     <SegmentGroup>
       <Segment>
         <ItemGroup>
-            <Item.Image size='tiny' circular src={event.hostPhotoURL} />
+            <Item.Image size='tiny' circular src={event.hostPhotoURL || '/user.png'} />
             <Item.Content>
                 <Item.Header>{event.title}</Item.Header>
                 <Item.Description>
@@ -36,7 +37,7 @@ const EventListItem = ({ event }: Props) => {
       </Segment>
       <Segment clearing>
         <span>{event.description}</span>
-        <Button color='teal' floated='right' content='View' />
+        <Button color='teal' floated='right' content='View' onClick={() => selectEvent(event)} />
       </Segment>
     </SegmentGroup>
   )
