@@ -22,6 +22,7 @@ const EventForm = ({ setFormOpen, addEvent }: Props) => {
 
   const handleSubmit = () => {
     addEvent({ ...values, id: createId(), hostedBy: 'Harry', attendees: [], hostPhotoURL: '' });
+    // console.log(values);
   }
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {

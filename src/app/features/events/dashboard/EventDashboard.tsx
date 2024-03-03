@@ -15,7 +15,7 @@ const EventDashboard = ({formOpen, setFormOpen}:Props) => {
 
     useEffect(() => {
         setEvents(sampleData);
-    });
+    }, []);
 
     const addEvent = (event: AppEvent) => {
         setEvents(prevState => {
